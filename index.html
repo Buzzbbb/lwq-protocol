@@ -18,22 +18,37 @@
         
         h1, h2, h3, h4 { color: #0f172a; margin-top: 0; }
 
-        /* 高级感页头 (Hero Section) */
+        /* 带有背景图的高级感页头 */
         header {
-            background: linear-gradient(135deg, #020617 0%, #1e1b4b 100%);
+            /* 引入您的背景图 */
+            background-image: url('images/banner-bg.jpg');
+            background-size: cover; /* 确保图片覆盖整个区域 */
+            background-position: center; /* 图片居中对齐 */
+            background-repeat: no-repeat;
+            
             color: white;
-            padding: 80px 20px;
+            padding: 100px 20px; /* 稍微增加了上下内边距，让图片展示得更多 */
             text-align: center;
             position: relative;
             overflow: hidden;
         }
-        header::after { /* 增加背景科技感纹理 */
+        
+        /* 添加一层半透明的黑色遮罩，确保上面的白色文字能看清 */
+        header::after { 
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.1) 0%, transparent 60%);
+            background: rgba(15, 23, 42, 0.6); /* 0.6 是透明度，可以根据图片深浅自己微调 */
             pointer-events: none;
+            z-index: 1;
         }
+        
+        /* 确保文字在遮罩层之上 */
+        header h1, header p {
+            position: relative;
+            z-index: 2;
+        }
+        
         header h1 {
             color: #38bdf8;
             font-size: 3.5rem;
@@ -45,7 +60,7 @@
         header p {
             font-size: 1.2rem;
             font-weight: 300;
-            color: #cbd5e1;
+            color: #e2e8f0;
             max-width: 600px;
             margin: 0 auto;
         }
