@@ -15,21 +15,24 @@
             /* 1. 引入您的背景图 */
             background-image: url('images/banner-bg.jpg'); /* 确保仓库根目录有 images 文件夹，且包含此文件 */
             
-            /* 2. 确保图片完整展示，不裁剪 */
-            background-size: contain; /* 完整展示图片，可能会留下空白区域 */
+            /* 2. 【核心修改】去除黑边，使图片填满整个区域 */
+            background-size: cover; 
             background-position: center; /* 图片居中对齐 */
             background-repeat: no-repeat;
-            background-color: #0f172a; /* 如果图片不能填满，使用此背景色 */
-
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
+            
+            /* 3. 【核心修改】启用 Flexbox，实现内容垂直水平完美居中 */
+            display: flex;
+            flex-direction: column; /* h1 在 p 上面 */
+            justify-content: center; /* 垂直居中 */
+            align-items: center; /* 水平居中 */
+            
+            padding: 0; /* 移除 padding，由 Flexbox 控制居中 */
+            min-height: 400px; /* 设置一个合适的固定高度，让图片充分展示 */
             position: relative;
             overflow: hidden;
-            min-height: 300px; /* 设置一个最小高度 */
+            
+            /* 根据要求，没有任何蒙版 */
         }
-        
-        /* 3. 【删除】遮罩层：根据要求，这里没有任何 rgba 遮罩 */
         
         /* 确保文字在背景图之上 */
         header h1, header p {
@@ -42,7 +45,7 @@
             font-size: 3.5rem;
             font-weight: 800;
             letter-spacing: 2px;
-            margin-bottom: 10px;
+            margin: 10px 0; /* 调整间距 */
             text-transform: uppercase;
         }
         header p {
@@ -50,7 +53,7 @@
             font-weight: 300;
             color: #e2e8f0; /* 副标题保持灰白色清晰 */
             max-width: 600px;
-            margin: 0 auto;
+            margin: 10px 0; /* 调整间距 */
         }
 
         /* 导航栏 */
