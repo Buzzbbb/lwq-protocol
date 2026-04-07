@@ -3,54 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LWQ - Post-Quantum Cryptography Standardization</title>
+    <title>Home - LWQ Protocol</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         /* 全局及重置 */
-        body, html {
-            margin: 0; padding: 0;
-            font-family: 'Inter', sans-serif;
-            color: #334155;
-            background-color: #f8fafc;
-            line-height: 1.7;
-            scroll-behavior: smooth; /* 丝滑滚动效果 */
-        }
-        
+        body, html { margin: 0; padding: 0; font-family: 'Inter', sans-serif; color: #334155; background-color: #f8fafc; line-height: 1.7; scroll-behavior: smooth; }
         h1, h2, h3, h4 { color: #0f172a; margin-top: 0; }
 
-        /* 带有背景图的高级感页头 */
+        /* 高级感页头 (Hero Section) - 带有背景图 */
         header {
-            /* 引入您的背景图 */
-            background-image: url('images/banner-bg.jpg');
-            background-size: cover; /* 确保图片覆盖整个区域 */
+            /* 1. 引入您的背景图 */
+            background-image: url('images/banner-bg.jpg'); /* 确保仓库根目录有 images 文件夹，且包含此文件 */
+            
+            /* 2. 确保图片完整展示，不裁剪 */
+            background-size: contain; /* 完整展示图片，可能会留下空白区域 */
             background-position: center; /* 图片居中对齐 */
             background-repeat: no-repeat;
-            
+            background-color: #0f172a; /* 如果图片不能填满，使用此背景色 */
+
             color: white;
-            padding: 100px 20px; /* 稍微增加了上下内边距，让图片展示得更多 */
+            padding: 100px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            min-height: 300px; /* 设置一个最小高度 */
         }
         
-        /* 添加一层半透明的黑色遮罩，确保上面的白色文字能看清 */
-        header::after { 
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(15, 23, 42, 0.6); /* 0.6 是透明度，可以根据图片深浅自己微调 */
-            pointer-events: none;
-            z-index: 1;
-        }
+        /* 3. 【删除】遮罩层：根据要求，这里没有任何 rgba 遮罩 */
         
-        /* 确保文字在遮罩层之上 */
+        /* 确保文字在背景图之上 */
         header h1, header p {
             position: relative;
             z-index: 2;
         }
         
         header h1 {
-            color: #38bdf8;
+            color: #38bdf8; /* 亮青色大标题 */
             font-size: 3.5rem;
             font-weight: 800;
             letter-spacing: 2px;
@@ -60,12 +48,12 @@
         header p {
             font-size: 1.2rem;
             font-weight: 300;
-            color: #e2e8f0;
+            color: #e2e8f0; /* 副标题保持灰白色清晰 */
             max-width: 600px;
             margin: 0 auto;
         }
 
-        /* 吸顶导航栏 */
+        /* 导航栏 */
         nav {
             background-color: #0f172a;
             position: sticky;
@@ -86,79 +74,20 @@
             letter-spacing: 1px;
             transition: background-color 0.3s, color 0.3s;
         }
+        /* 导航高亮效果 */
         nav a:hover, nav a.active {
             background-color: #38bdf8;
             color: #0f172a;
         }
 
         /* 核心内容容器 */
-        main {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        /* 卡片式内容区块 */
-        section {
-            background: white;
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-            scroll-margin-top: 80px; /* 防止锚点跳转被导航栏遮挡 */
-        }
+        main { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        section { background: white; border-radius: 12px; padding: 40px; margin-bottom: 40px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); }
+        section h2 { font-size: 2rem; border-bottom: 3px solid #38bdf8; padding-bottom: 10px; margin-bottom: 25px; display: inline-block; }
+        section h3 { font-size: 1.3rem; color: #475569; margin-top: 30px; margin-bottom: 15px; }
+        ul { padding-left: 20px; } li { margin-bottom: 10px; }
         
-        section h2 {
-            font-size: 2rem;
-            border-bottom: 3px solid #38bdf8;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
-            display: inline-block;
-        }
-
-        section h3 {
-            font-size: 1.3rem;
-            color: #475569;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        /* 下载按钮样式 (高级质感) */
-        .download-btn {
-            display: inline-block;
-            background: #0ea5e9;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 15px;
-            margin-right: 15px;
-            transition: transform 0.2s, background 0.2s;
-            box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.4);
-        }
-        .download-btn:hover {
-            background: #0284c7;
-            transform: translateY(-2px);
-            color: white;
-        }
-
-        /* 列表样式优化 */
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-
-        /* 页脚 */
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #0f172a;
-            color: #64748b;
-            font-size: 0.9rem;
-        }
+        footer { text-align: center; padding: 30px; background: #0f172a; color: #64748b; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -180,7 +109,6 @@
     <main>
         <section id="home">
             <h2>Home</h2>
-            
             <h3>Overview</h3>
             <p>LWQ is an IND-CCA2 secure Key Encapsulation Mechanism (KEM) designed for the post-quantum era. Its security relies on the hardness of advanced lattice problems, remaining secure even against large-scale quantum computers. LWQ aims to provide an optimal balance between security, performance, and key sizes.</p>
 
@@ -202,6 +130,5 @@
     <footer>
         <p>&copy; 2026 LWQ Protocol Team. All rights reserved.</p>
     </footer>
-
 </body>
 </html>
