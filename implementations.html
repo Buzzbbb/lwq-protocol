@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementations - LWQ Protocol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body, html { margin: 0; padding: 0; font-family: 'Inter', sans-serif; color: #334155; background-color: #f8fafc; line-height: 1.7; }
+        h1, h2, h3, h4 { color: #0f172a; margin-top: 0; }
+        header { background: linear-gradient(135deg, #020617 0%, #1e1b4b 100%); color: white; padding: 80px 20px; text-align: center; position: relative; overflow: hidden; }
+        header::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.1) 0%, transparent 60%); pointer-events: none; }
+        header h1 { color: #38bdf8; font-size: 3.5rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; }
+        header p { font-size: 1.2rem; font-weight: 300; color: #cbd5e1; max-width: 600px; margin: 0 auto; }
+        nav { background-color: #0f172a; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); display: flex; justify-content: center; flex-wrap: wrap; }
+        nav a { color: #f8fafc; text-decoration: none; padding: 15px 20px; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: background-color 0.3s, color 0.3s; }
+        nav a:hover, nav a.active { background-color: #38bdf8; color: #0f172a; }
+        main { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        section { background: white; border-radius: 12px; padding: 40px; margin-bottom: 40px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); }
+        section h2 { font-size: 2rem; border-bottom: 3px solid #38bdf8; padding-bottom: 10px; margin-bottom: 25px; display: inline-block; }
+        .impl-box { border: 1px solid #e2e8f0; border-left: 4px solid #0ea5e9; padding: 20px; margin-bottom: 20px; border-radius: 6px; background: #f8fafc; }
+        .impl-box h4 { margin-bottom: 10px; color: #0284c7; font-size: 1.1rem; }
+        ul { padding-left: 20px; } li { margin-bottom: 10px; }
+        footer { text-align: center; padding: 30px; background: #0f172a; color: #64748b; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LWQ</h1>
+        <p>A Lattice-Based Key Encapsulation Mechanism</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="performance.html">Performance</a>
+        <a href="resources.html">Resources</a>
+        <a href="software.html">Software</a>
+        <a href="implementations.html" class="active">List of Implementations</a>
+        <a href="team.html">Team</a>
+    </nav>
+
+    <main>
+        <section id="implementations">
+            <h2>List of Implementations</h2>
+            <p>LWQ has been implemented across a variety of software and hardware platforms to demonstrate its flexibility and efficiency in different environments.</p>
+            
+            <div class="impl-box">
+                <h4>Software - Reference C</h4>
+                <p>Platform independent. Focuses on clarity, constant-time execution, and ease of auditing. Compliant with C99 standards.</p>
+            </div>
+
+            <div class="impl-box">
+                <h4>Software - AVX2 Optimized</h4>
+                <p>Targets modern Intel and AMD processors. Utilizes 256-bit SIMD instructions to significantly accelerate polynomial multiplication and sampling.</p>
+            </div>
+
+            <div class="impl-box">
+                <h4>Embedded - ARM Cortex-M4</h4>
+                <p>Highly optimized assembly implementation for constrained IoT environments. Achieves minimal memory footprint while maintaining competitive cycle counts.</p>
+            </div>
+
+            <div class="impl-box">
+                <h4>Hardware - FPGA (Verilog)</h4>
+                <p>A fast, constant-time hardware accelerator designed for Xilinx Artix-7 FPGAs. Demonstrates the hardware efficiency of LWQ's power-of-two moduli design.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 LWQ Protocol Team. All rights reserved.</p>
+    </footer>
+</body>
+</html>
